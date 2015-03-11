@@ -27,21 +27,33 @@
         .state('state2', {
           url: '/state2',
           templateUrl: 'state2.html'
+        })
+
+	.state('state3', {
+          url: '/state3',
+          templateUrl: 'state3.html'
         });
+
 
       })
     </script>
       
   </head>
   <body ng-app="ionic-navview">
+
+    <ion-nav-bar class="bar-positive nav-title-slide-ios7" align-title="center">
+      <ion-nav-back-button class="button-icon ion-arrow-left-c">
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
     <ion-nav-view>
     </ion-nav-view>
           
     <script type="text/ng-template" id="state1.html">
-      <ion-view view-title="Home">
+      <ion-view view-title="Home" hide-back-button="true">
         <ion-content>
           <h2>I am state 1!</h2>
-          <a href="#/state2">Go to state 2.</a>
+	  <a class="button" ui-sref="state2">Go To State 2</a>
         </ion-content>
       </ion-view>
     </script>
@@ -50,9 +62,21 @@
       <ion-view view-title="Two">
         <ion-content>
           <h2>I am state 2!</h2>
+	  <a class="button" ui-sref="state3">Go To State 3</a>
         </ion-content>
       </ion-view>
     </script>
-      
+     
+    <script type="text/ng-template" id="state3.html">
+     <ion-view view-title="Three">
+       <ion-content>
+         <h2>I am state 3!</h2>
+         <a class="button" ui-sref="state1">Go To State 1</a>
+         <a class="button" ui-sref="state2">Go To State 2</a>
+       </ion-content>
+     </ion-view>
+   </script>
+
+ 
   </body>
 </html>
